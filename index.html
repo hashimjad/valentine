@@ -17,7 +17,6 @@
       overflow: hidden;
     }
 
-    /* CARD */
     .card {
       background: #fff;
       padding: 40px;
@@ -59,7 +58,6 @@
       margin-right: 10px;
     }
 
-    /* NO BUTTON CHIP */
     .no {
       background: rgba(0, 0, 0, 0.6);
       color: rgba(255, 255, 255, 0.95);
@@ -80,7 +78,6 @@
       display: none;
     }
 
-    /* FOOTER CHIP */
     .footer {
       margin-top: 20px;
       text-align: center;
@@ -98,11 +95,10 @@
       font-size: 12px;
     }
 
-    /* MESSAGE WHITE CHIP */
     .message-chip {
       display: inline-block;
       padding: 18px 22px;
-      background: rgba(255, 255, 255, 0.7); /* 👈 CONTROL INTENSITY HERE */
+      background: rgba(255, 255, 255, 0.7); /* control intensity */
       border-radius: 20px;
       box-shadow: 0 10px 25px rgba(0,0,0,0.18);
       margin-top: 10px;
@@ -117,7 +113,6 @@
       margin-bottom: 0;
     }
 
-    /* YES CARD BACKGROUND */
     #yesCard {
       background-image: url("https://raw.githubusercontent.com/hashimjad/valentine/main/my-photo.jpeg");
       background-size: cover;
@@ -130,7 +125,6 @@
       to { background-size: 115%; }
     }
 
-    /* Overlay */
     #yesCard::before {
       content: "";
       position: absolute;
@@ -145,7 +139,6 @@
       z-index: 1;
     }
 
-    /* HEARTS */
     .heart {
       position: absolute;
       bottom: -20px;
@@ -204,12 +197,6 @@
     const questionCard = document.getElementById("questionCard");
     const yesCard = document.getElementById("yesCard");
 
-    if (localStorage.getItem("valentineAccepted") === "yes") {
-      questionCard.classList.add("hidden");
-      yesCard.classList.remove("hidden");
-      startHearts();
-    }
-
     noBtn.addEventListener("mouseover", moveNo);
     noBtn.addEventListener("click", moveNo);
 
@@ -222,14 +209,12 @@
     }
 
     function sayYes() {
-      localStorage.setItem("valentineAccepted", "yes");
       questionCard.classList.add("hidden");
       yesCard.classList.remove("hidden");
       startHearts();
     }
 
     function tryAgain() {
-      localStorage.removeItem("valentineAccepted");
       yesCard.classList.add("hidden");
       questionCard.classList.remove("hidden");
     }
