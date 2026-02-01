@@ -61,8 +61,8 @@
 
     /* NO BUTTON CHIP */
     .no {
-      background: rgba(0, 0, 0, 0.60);     /* slightly black */
-      color: rgba(255, 255, 255, 0.95);   /* white text */
+      background: rgba(0, 0, 0, 0.6);
+      color: rgba(255, 255, 255, 0.95);
       border: 1px solid rgba(255, 255, 255, 0.6);
       box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     }
@@ -89,7 +89,7 @@
     .footer-chip {
       display: inline-block;
       padding: 8px 16px;
-      background: rgba(0, 0, 0, 0.6); /* 90% transparent black */
+      background: rgba(0, 0, 0, 0.6);
       color: rgba(255, 255, 255, 0.95);
       font-weight: 700;
       border-radius: 999px;
@@ -98,9 +98,28 @@
       font-size: 12px;
     }
 
+    /* MESSAGE WHITE CHIP */
+    .message-chip {
+      display: inline-block;
+      padding: 18px 22px;
+      background: rgba(255, 255, 255, 0.7); /* 👈 CONTROL INTENSITY HERE */
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.18);
+      margin-top: 10px;
+    }
+
+    .message-chip p {
+      color: #444;
+      margin: 0 0 10px 0;
+    }
+
+    .message-chip p:last-child {
+      margin-bottom: 0;
+    }
+
     /* YES CARD BACKGROUND */
     #yesCard {
-      background-image: url("PASTE_YOUR_GITBOOK_IMAGE_URL_HERE");
+      background-image: url("https://raw.githubusercontent.com/hashimjad/valentine/main/my-photo.jpeg");
       background-size: cover;
       background-position: center;
       animation: zoomBg 18s ease-in-out infinite alternate;
@@ -116,8 +135,8 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: rgba(255, 255, 255, 0.75);
-      backdrop-filter: blur(2px);
+      background: rgba(255, 255, 255, 0.35);
+      backdrop-filter: blur(0.6px);
       z-index: 0;
     }
 
@@ -167,14 +186,15 @@
 
   <!-- SUCCESS SCREEN -->
   <div class="card hidden" id="yesCard">
-    <h1>അപ്പോ എല്ലാം ശുഭം 🥰</h1>
+    <h1>ഒടുവിലവൻ വന്നെത്തി 🥰</h1>
 
-    <p>
-      സൂക്ഷിച്ച് നോക്കേണ്ടെട ഉണ്ണി…  
-      ആ വാലന്റൈൻ ഞാൻ തന്നെ! 🤩
-    </p>
-
-    <p>❤️🤪 സന്തോഷായില്ലേ?? 🤪❤️</p>
+    <div class="message-chip">
+      <p>
+        സൂക്ഷിച്ച് നോക്കണ്ടട ഉണ്ണ്യേ…  
+        ആ വാലന്റൈൻ ഈ ഞാൻ തന്നെ! 🤩
+      </p>
+      <p>❤️🤪 സന്തോഷായില്ലേ?? 🤪❤️</p>
+    </div>
 
     <button class="try-again" onclick="tryAgain()">തിരിച്ചു പോണോ? നടക്കൂല 🤓</button>
   </div>
@@ -232,4 +252,3 @@
 
 </body>
 </html>
-
