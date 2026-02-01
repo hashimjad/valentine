@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Valentine 💖</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #ff758c, #ff7eb3);
+      height: 100vh;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .card {
+      background: #fff;
+      padding: 35px;
+      border-radius: 20px;
+      text-align: center;
+      width: 90%;
+      max-width: 360px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+      position: relative;
+    }
+
+    h1 {
+      color: #ff4d6d;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: #444;
+      margin-bottom: 20px;
+    }
+
+    button {
+      font-size: 18px;
+      padding: 12px 26px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      position: absolute;
+    }
+
+    .yes {
+      background: #ff4d6d;
+      color: white;
+      position: relative;
+      margin-right: 10px;
+    }
+
+    .no {
+      background: #ddd;
+      color: #333;
+    }
+
+    .try-again {
+      position: relative;
+      margin-top: 20px;
+      font-size: 16px;
+      padding: 10px 22px;
+      background: #ff4d6d;
+      color: white;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .footer {
+      margin-top: 20px;
+      font-size: 12px;
+      color: #aaa;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- QUESTION SCREEN -->
+  <div class="card" id="questionCard">
+    <h1>ഷൂട്ടുമണി..ന്റെ വാലൻന്റൈൻ ആവോ??? 🫣 💖</h1>
+    <p>I have something special planned… 🥰</p>
+
+    <button class="yes" onclick="sayYes()">YES 😍</button>
+    <button class="no" id="noBtn">NO 🙄</button>
+
+    <div class="footer">⚠️ നോക്കേണ്ടെട ഉണ്ണി …ഇനിയൊരു തിരിച്ച് പോക്ക് ഇല്ല..</div>
+  </div>
+
+  <!-- SUCCESS SCREEN -->
+  <div class="card hidden" id="yesCard">
+    <h1>It’s official 💕</h1>
+    <p>You are my Valentine 🥰</p>
+    <p>
+      This page will always remember your answer 😌  
+      <br><br>
+      ❤️ 14th Feb is ours ❤️
+    </p>
+    <p style="margin-top:20px;">— Yours 💘</p>
+
+    <button class="try-again" onclick="tryAgain()">Try again 🔄</button>
+  </div>
+
+  <script>
+    const noBtn = document.getElementById("noBtn");
+    const questionCard = document.getElementById("questionCard");
+    const yesCard = document.getElementById("yesCard");
+
+    // Check saved response
+    if (localStorage.getItem("valentineAccepted") === "yes") {
+      questionCard.classList.add("hidden");
+      yesCard.classList.remove("hidden");
+    }
+
+    noBtn.addEventListener("mouseover", moveNo);
+    noBtn.addEventListener("click", moveNo);
+
+    function moveNo() {
+      const rect = questionCard.getBoundingClientRect();
+      const x = Math.random() * (rect.width - 100);
+      const y = Math.random() * (rect.height - 50);
+
+      noBtn.style.left = `${x}px`;
+      noBtn.style.top = `${y}px`;
+    }
+
+    function sayYes() {
+      localStorage.setItem("valentineAccepted", "yes");
+      questionCard.classList.add("hidden");
+      yesCard.classList.remove("hidden");
+    }
+
+    function tryAgain() {
+      localStorage.removeItem("valentineAccepted");
+      yesCard.classList.add("hidden");
+      questionCard.classList.remove("hidden");
+    }
+  </script>
+
+</body>
+</html>
